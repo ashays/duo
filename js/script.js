@@ -27,15 +27,46 @@ function incrementStack() {
 
 function correct() {
 	$('.cards').addClass('transition correct');
-	setTimeout(incrementStack, 500);
+	dynamics.animate($('.cards .card')[0], {
+		translateX : 100,
+		translateY : 10,
+		rotateZ: 5,
+		opacity: 0
+	}, {
+		type: dynamics.easeOut,
+		duration: 500,
+		complete: incrementStack
+	});
 }
 
 function incorrect() {
 	$('.cards').addClass('transition incorrect');
-	setTimeout(incrementStack, 500);
+	dynamics.animate($('.cards .card')[0], {
+		translateX : -100,
+		translateY : 10,
+		rotateZ: -5,
+		opacity: 0
+	}, {
+		type: dynamics.easeOut,
+		duration: 500,
+		complete: incrementStack
+	});
+}
+
+function fillStack(listOfWords) {
+	$.each(listOfWords, function(index, value) {
+	  addCard(value);
+	});
+}
+
+function addCard(word) {
+	var colors = ['#f1c40f', '#e67e22', '#e74c3c', '#f39c12', '#d35400', '#c0392b'];
+	var card = '<div class="card" style="background: ' + colors[Math.floor(Math.random()*colors.length)] + ';"><span class="word">' + word + '</span></div>';
+	$('.cards').append(card);
 }
 
 $(document).ready(function() {
+	fillStack(disney);
 	$("#incorrect-btn").click(incorrect);
 	$("#correct-btn").click(correct);
 });

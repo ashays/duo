@@ -62,31 +62,36 @@ body {
 }
 
 .cards .card:nth-child(1) {
-    z-index: 5;
+    z-index: 6;
     transform: scale(1);
     top: 10px;
+    transition: 0s all;
 }
 
 .cards .card:nth-child(2) {
-    z-index: 4;
+    z-index: 5;
     transform: scale(.95);
     top: 0;
 }
 
 .cards .card:nth-child(3) {
-    z-index: 3;
+    z-index: 4;
     transform: scale(.9);
     top: -10px;
 }
 
 .cards .card:nth-child(4) {
-    z-index: 2;
+    z-index: 3;
     transform: scale(.85);
     top: -20px;
 }
 
-.cards.transition .card:nth-child(1) {
-    opacity: 0;
+.cards .card:nth-child(5) {
+    z-index: 2;
+}
+
+/*.cards.transition .card:nth-child(1) {
+    opacity: .5;
 }
 
 .cards.transition.correct .card:nth-child(1) {
@@ -95,7 +100,7 @@ body {
 
 .cards.transition.incorrect .card:nth-child(1) {
     margin-left: -75px;
-}
+}*/
 
 .cards.transition .card:nth-child(2) {
     transform: scale(1);

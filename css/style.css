@@ -18,6 +18,59 @@ body {
     font-size: 50px;
 }
 
+.status {
+    position: absolute;
+    width: 100%;
+    background: #222;
+    z-index: 10;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    padding-top: 50px;
+}
+
+.wrapper {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.status h3 {
+    font-size: 30px;
+    font-weight: normal;
+    margin: 10px;
+}
+
+.status #teamTurn {
+    font-weight: bold;
+    color: #16a085;
+}
+
+#start_button:before, #start_button:after {
+    font-size: 75px;
+    position: absolute;
+    top: -15px;
+}
+
+#start_button:before {
+    content: '[';
+    left: 0;
+}
+
+#start_button:after {
+    content: ']';
+    right: 0;
+    font-weight: bold;
+}
+
+#start_button {
+    width: 225px;
+    position: relative;
+    margin: 0 auto;
+    height: 60px;
+    padding-top: 10px;
+    text-transform: lowercase; 
+}
+
 #controls {
     position: absolute;
     width: 400px;
@@ -133,6 +186,7 @@ body {
     width: 100%;
     text-align: center;
     transition: all .5s;
+    z-index: 10;
 }
 
 .scores.hide {

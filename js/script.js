@@ -87,6 +87,14 @@ function addCard(word) {
 
 $(document).ready(function() {
 	fillStack(all);
+	$("#start_button").click(function() {
+		$('.status').fadeOut();
+		toggleScores();
+	});
 	$("#incorrect-btn").click(incorrect);
 	$("#correct-btn").click(correct);
 });
+
+
+
+

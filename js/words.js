@@ -4,6 +4,6 @@ var hiphop = ['Twerk', 'Nae Nae', 'Harlem Shake', 'Dougie', 'Electric Slide', 'W
 var drinking = ['Clubbing', 'Bar Hopping', 'Pub Crawl', 'Ladies Night Out', 'Mens Night Out', "King's Cup", 'Rum and Coke', 'Tequila Shot', 'Sangria', 'Wine'];
 var apps = ['FaceTime', 'Instagram', 'Snapchat', 'Find my iPhone', 'Tinder', 'Pokemon Go', 'Facebook', 'Angry Birds', 'Google Maps', 'Yik Yak', 'Yelp', 'QuizUp', 'WhatsApp', 'GroupMe', 'Slack', 'Uber', 'Spotify', 'Venmo', 'App Store', 'Play Store', 'Messenger', 'YouTube', 'Flipboard', 'Gmail'];
 var greek = ['Pledge', 'Sorority Sisters', 'Sorority Squat', 'Greek Life', 'Fraternity Brothers', 'Frat Hopping'];
-var events = ['First Kiss', 'First Date', 'Prom', 'Homecoming', 'Wedding', 'Proposal', "Mother's Day", "Father's Day", 'Black Friday', 'Thanksgiving', 'Christmas', 'Halloween', 'Independence Day', 'Summer Break', 'Sweet Sixteen', 'Birthday', 'Engagement', 'First Day of School', 'First Day of Work', 'Anniversary', 'New Years', 'Valentines Day', 'Easter'];
-
+var events = ['First Kiss', 'First Date', 'Prom', 'Wedding', 'Proposal', "Mother's Day", "Father's Day", 'Black Friday', 'Christmas', 'Halloween', 'Summer Break', 'Sweet Sixteen', 'Birthday', 'First Day of School', 'First Day of Work', 'Anniversary', 'New Years', 'Valentines Day', 'Easter'];
+// 'Thanksgiving', 'Independence Day', 'Engagement', 'Homecoming', 
 var all = disney.concat(millennials).concat(hiphop).concat(drinking).concat(apps).concat(greek).concat(events);

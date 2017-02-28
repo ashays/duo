@@ -1,9 +1,9 @@
 var disney = ['Tangled', 'Winnie the Pooh', 'Wreck-It Ralph', 'Frozen', 'Big Hero 6', 'Zootopia', 'Finding Dory', 'The Good Dinosaur', 'Inside Out', 'Monsters University', 'Brave', 'Cars 2', 'Toy Story 3'];
 var millennials = ['Selfie', 'Bromance', 'TFTI', 'LOL', 'Friends with Benefits', 'Netflix and Chill', 'Swag', 'Selfie Stick', 'Bros before Hoes', 'On Fleek', 'Bae', 'YOLO', 'Throwing shade', 'Turnt', 'Bye Felicia', 'Thirsty', 'Basic', 'FOMO', 'SMH', 'Ship', 'Woman Crush Wednesday', 'Man Crush Monday', 'Flashback Friday', 'Throwback Thursday', 'Yassss', 'Selife Sunday'];
 var hiphop = ['Twerk', 'Nae Nae', 'Harlem Shake', 'Dougie', 'Electric Slide', 'Wobble', 'Stanky Legg', 'Soulja Boy', 'Dabbing'];
-var drinking = ['Clubbing', 'Bar Hopping', 'Pub Crawl', 'Ladies Night Out', 'Mens Night Out', "King's Cup", 'Rum and Coke', 'Tequila Shot', 'Sangria', 'Wine'];
+var drinking = ['Red Solo Cup', 'Clubbing', 'Bar Hopping', 'Pub Crawl', 'Ladies Night Out', 'Mens Night Out', "King's Cup", 'Rum and Coke', 'Tequila Shot', 'Sangria', 'Wine'];
 var apps = ['FaceTime', 'Instagram', 'Snapchat', 'Find my iPhone', 'Tinder', 'Pokemon Go', 'Facebook', 'Angry Birds', 'Google Maps', 'Yik Yak', 'Yelp', 'QuizUp', 'WhatsApp', 'GroupMe', 'Slack', 'Uber', 'Spotify', 'Venmo', 'App Store', 'Play Store', 'Messenger', 'YouTube', 'Flipboard', 'Gmail'];
-var greek = ['Pledge', 'Sorority Sisters', 'Sorority Squat', 'Greek Life', 'Fraternity Brothers', 'Frat Hopping'];
+var greek = ['Pledge', 'Sorority Sisters', 'Sorority Squat', 'Greek Life', 'Fraternity Brothers', 'Frat Hopping', 'Date Night', 'Semi-Formal'];
 var events = ['First Kiss', 'First Date', 'Prom', 'Wedding', 'Proposal', "Mother's Day", "Father's Day", 'Black Friday', 'Christmas', 'Halloween', 'Summer Break', 'Sweet Sixteen', 'Birthday', 'First Day of School', 'First Day of Work', 'Anniversary', 'New Years', 'Valentines Day', 'Easter'];
 // 'Thanksgiving', 'Independence Day', 'Engagement', 'Homecoming', 
 var all = disney.concat(millennials).concat(hiphop).concat(drinking).concat(apps).concat(greek).concat(events);

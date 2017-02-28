@@ -14,8 +14,15 @@ body {
 
 #header {
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0;
     font-size: 50px;
+}
+
+.timer {
+    position:fixed;
+    width: 100%;
+    height: 5px;
+    animation:timer 30s forwards;
 }
 
 .status {
@@ -25,8 +32,12 @@ body {
     z-index: 10;
     text-align: center;
     top: 0;
-    height: 100%;
-    padding-top: 50px;
+    padding: 20px 0;
+    min-height: 100%;
+}
+
+.status .screen {
+    display: none;
 }
 
 .wrapper {
@@ -40,29 +51,58 @@ body {
     margin: 10px;
 }
 
-.status #teamTurn {
-    font-weight: bold;
-    color: #16a085;
+.instructions {
+    font-size: 20px;
+    margin: 15px 0 20px;
 }
 
-#start_button:before, #start_button:after {
+.status #teamTurn {
+    font-weight: bold;
+    background: transparent !important;
+}
+
+.status .small-btn {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    background: #555;
+    font-size: 20px;
+
+    opacity: .5;
+    margin: 10px;
+    border-radius: 50%;
+    transition: all .3s;
+}
+
+.status .small-btn.clicked {
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+    margin: 5px;
+    opacity: 1;
+    background: #16a085;
+    background: linear-gradient(135deg, rgba(22,160,132,1) 0%, rgba(41,128,185,1) 100%);
+}
+
+.fancy-btn:before, .fancy-btn:after {
     font-size: 75px;
     position: absolute;
     top: -15px;
 }
 
-#start_button:before {
+.fancy-btn:before {
     content: '[';
     left: 0;
 }
 
-#start_button:after {
+.fancy-btn:after {
     content: ']';
     right: 0;
     font-weight: bold;
 }
 
-#start_button {
+.fancy-btn {
     width: 225px;
     position: relative;
     margin: 0 auto;
@@ -77,6 +117,32 @@ body {
     left: 50%;
     margin-left: -200px;
     margin-top: 75px;
+}
+
+#time-screen {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    padding: 50px 0;
+    text-align: center;
+    display: none;
+}
+
+#time-screen #time-text {
+    display: inline-block;
+    margin: 0 auto;
+    font-size: 60px;
+    color: #e84c3d;
+    text-transform: uppercase;
+    font-weight: bold;
+    transform: scale(2);
+    opacity: 0;
+}
+
+#time-screen #time-text span {
+    -webkit-text-stroke: 20px #fff;
+    position: absolute;
+    z-index: -1;
 }
 
 #incorrect-btn {
@@ -181,7 +247,7 @@ body {
 }
 
 .scores {
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     width: 100%;
     text-align: center;
@@ -189,8 +255,18 @@ body {
     z-index: 10;
 }
 
-.scores.hide {
+.scores.gone {
     bottom: -35px;
+}
+
+.scores.hide span {
+    opacity: 0;
+    margin-top: 0px;
+}
+
+.scores.hide span.show {
+    opacity: 1;
+    margin-top: -30px;
 }
 
 .score {
@@ -212,24 +288,37 @@ body {
     left: 0;
     width: 100%;
     top: 0;
+    transition: all .5s;
 }
 
-#team1 {
+.team0 {
     background: #16a085;
     color: #16a085;
 }
 
-#team2 {
+.team1 {
     background: #27ae60;
     color:  #27ae60;
 }
 
-#team3 {
+.team2 {
     background: #2980b9;
     color: #2980b9;
 }
 
-#team4 {
+.team3 {
     background: #8e44ad;
     color: #8e44ad;
+}
+
+@keyframes timer
+{
+    from { width: 100%; }
+    to { width: 0%; }
+}
+
+@-webkit-keyframes timer /* Safari and Chrome */
+{
+    from { width: 100%; }
+    to { width: 0%; }
 }

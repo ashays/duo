@@ -15,24 +15,31 @@
 	<div id="header">[<strong>d</strong>uo<strong>]</strong></div>
 	<div class="status">
 		<div class="wrapper">
-			<h3>Let's get started!</h3>
-			<p class="instructions">Describe or act out the word that appears on the screen for your partner. Tap the thumbs up if your partner guesses the word correctly first. Tap the thumbs down if anyone else guesses the word correctly first (or if you would like to skip the word). You have one minute to get as many points as you can.</p>
-			<div id="start_button">
-				<div>Pass device to <span id="teamTurn">Team 1</span></div>
-				<div style="font-size: 30px; margin-top: -5px;">Start</div>
+			<div class="screen" id="game-settings">
+				<h3>Let's get started!</h3>
+				<p class="instructions">Partner up. How many groups are playing?</p>
+				<div class="btn-group" id="num-teams">
+					<div class="small-btn">2</div>
+					<div class="small-btn">3</div>
+					<div class="small-btn">4</div>
+				</div>
+			</div>
+			<div class="screen" id="pass-device">
+				<h3>Pass device to <span id="teamTurn"></span></h3>
+				<p class="instructions">Describe or act out the word that appears on the screen for your partner. Tap the thumbs up if your partner guesses the word correctly first. Tap the thumbs down if anyone else guesses the word correctly first, or if you would like to skip the word. You have one minute to get as many points as you can.</p>
+				<div class="fancy-btn" id="start_button">
+					<div>On your mark!</div>
+					<div style="font-size: 30px; margin-top: -5px;">Start</div>
+				</div>
 			</div>
 		</div>
 	</div>
+	<div id="time-screen"></div>
 	<div id="controls">
 		<div class="button" id="incorrect-btn"><img src="img/thumbs_down.svg"></div>
 		<div class="button" id="correct-btn"><img src="img/thumbs_up.svg"></div>
 	</div>
 	<div class="cards"></div>
-	<div class="scores">
-		<div id="team1" class="score"><span></span></div>
-		<div id="team2" class="score"><span></span></div>
-		<div id="team3" class="score"><span></span></div>
-		<div id="team4" class="score"><span></span></div>
-	</div>
+	<div class="scores gone hide"><!-- <div class="team0" class="score"><span></span></div> --></div>
 </body>
 </html>

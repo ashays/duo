@@ -2,11 +2,10 @@ var teams = 4;
 var scores = [0, 0, 0, 0];
 var curTurn = -1;
 var curTeam = function() { return curTurn % teams; }
-var curRound = function() { return Math.floor(curTurn / curTeam); }
+var curRound = function() { return Math.floor(curTurn / teams); }
 var roundPts = 0;
 
 $(document).ready(function() {
-	fillStack(all);
 	$('#game-settings').show();
 	$('#game-settings .small-btn').click(setupGame);
 	$("#start_button").click(startLevel);
@@ -15,6 +14,7 @@ $(document).ready(function() {
 });
 
 function setupGame(e) {
+	toggleFullScreen();
 	var ele = e.target;
 	var group = $(e.target).parents('.btn-group');
 	$(group).children('.small-btn').removeClass('clicked');
@@ -23,6 +23,7 @@ function setupGame(e) {
 	for (var i = 0; i < teams; i++) {
 		$('.scores').append('<div class="score team' + i + '"><span></span></div>');
 	}
+	fillStack(all, 50);
 	setupTurn();
 	transitionStatusScreen($('#game-settings'), $('#pass-device'));
 }
@@ -30,12 +31,20 @@ function setupGame(e) {
 function setupTurn() {
 	toggleScoreBlocks();
 	toggleScores();
+	incorrect(); // So top card is new
+	fillStack(all, roundPts);
 	curTurn += 1;
 	roundPts = 0;
+	if (curRound() > 0) {
+		if (inLead()) {
+			$('#pass-device .instructions').text("Smooth sailing from here. You're in the lead! Keep it up and you'll end up on top for sure.");
+		} else {
+			$('#pass-device .instructions').text("You're not in the lead, but you can still get there with a little perseverance.");
+		}
+	}
 	$('#teamTurn').removeClass("team0 team1 team2 team3").addClass("team" + curTeam()).text("Team " + (curTeam() + 1));
+	$('#time-screen').empty().append('<div id="time-text"><span>Time</span>Time</div><div><p class="instructions"></p></div>'); // TIME text
 	setTimeout(highlightScore, 1000);
-	// TIME text
-	$('#time-screen').empty().append('<div id="time-text"><span>Time</span>Time</div><div><p class="instructions"></p></div>');
 }
 
 function startLevel() {
@@ -43,7 +52,7 @@ function startLevel() {
 	$('#time-screen').hide();
 	$('#controls').show();
 	$('.cards').show();
-	restartTimer(10);
+	restartTimer(30);
 	$('.status').fadeOut();
 }
 
@@ -73,6 +82,15 @@ function endTurn() {
 			}, 2000);
 		}
 	});
+}
+
+function inLead() {
+	for (var i = 0; i < teams; i++) {
+		if (i != curTeam() && scores[curTeam()] <= scores[i]) {
+			return false;
+		}
+	}
+	return true;
 }
 
 function transitionStatusScreen(from, to) {
@@ -171,8 +189,8 @@ function shuffle(array) {
   return array;
 }
 
-function fillStack(listOfWords) {
-	listOfWords = shuffle(listOfWords).slice(0, 50);
+function fillStack(listOfWords, limit) {
+	listOfWords = shuffle(listOfWords).slice(0, limit);
 	$.each(listOfWords, function(index, value) {
 	  addCard(value);
 	});
@@ -182,4 +200,18 @@ function addCard(word) {
 	var colors = ['#f1c40f', '#e67e22', '#e74c3c', '#f39c12', '#d35400', '#c0392b'];
 	var card = '<div class="card" style="background: ' + colors[Math.floor(Math.random()*colors.length)] + ';"><span class="word">' + word + '</span></div>';
 	$('.cards').append(card);
+}
+
+function toggleFullScreen() {
+	var doc = window.document;
+	var docEl = doc.documentElement;
+
+	var requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+	var cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+	if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+		requestFullScreen.call(docEl);
+	} else {
+		cancelFullScreen.call(doc);
+	}
 }

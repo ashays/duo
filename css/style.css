@@ -32,7 +32,7 @@ body {
     z-index: 10;
     text-align: center;
     top: 0;
-    padding: 20px 0;
+    padding: 10px 0;
     min-height: 100%;
 }
 
@@ -86,9 +86,10 @@ body {
 }
 
 .fancy-btn:before, .fancy-btn:after {
-    font-size: 75px;
+    font-size: 60px;
     position: absolute;
     top: -15px;
+    transition: .3s all;
 }
 
 .fancy-btn:before {
@@ -103,12 +104,21 @@ body {
 }
 
 .fancy-btn {
-    width: 225px;
+    width: 200px;
     position: relative;
     margin: 0 auto;
-    height: 60px;
-    padding-top: 10px;
-    text-transform: lowercase; 
+    height: 50px;
+    padding: 5px 0;
+    text-transform: lowercase;
+    font-size: 30px;
+}
+
+.fancy-btn.clicked:before {
+    transform: rotate(-10deg) translateY(10px);
+}
+
+.fancy-btn.clicked:after {
+    transform: rotate(-10deg) translateY(-10px);
 }
 
 #controls {
@@ -160,7 +170,7 @@ body {
 .cards {
     text-align: center;
     position: relative;
-    width: 200px;
+    width: 250px;
     height: 210px;
     margin: 0 auto;
 }
@@ -168,7 +178,7 @@ body {
 .card {
     position: absolute;
     display: table;
-    width: 200px;
+    width: 250px;
     height: 200px;
     padding: 10px;
     text-align: center;
